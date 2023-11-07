@@ -19,13 +19,17 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const getData = useCallback(async () => {
-    try {
-      setData(await api.loadData());
-    } catch (err) {
-      setError(err);
-    }
-  }, []);
+ // Inside your DataProvider component
+const getData = useCallback(async () => {
+  try {
+    const loadedData = await api.loadData();
+    console.log('Data loaded:', loadedData); // Add this line
+    setData(loadedData);
+  } catch (err) {
+    setError(err);
+  }
+}, []);
+
   useEffect(() => {
     if (data) return;
     getData();
