@@ -9,7 +9,7 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-  // modification from: new Date(evtA.date) < new Date(evtB.date) ? -1 : 1 to:
+  // modification from: new Date(evtA.date) < new Date(evtB.date) ? -1 : 1 
     new Date(evtB.date) > new Date(evtA.date) ? 1 : -1
   );
 
@@ -17,8 +17,8 @@ const Slider = () => {
     // ajout de if (byDateDesc)
     if (byDateDesc) {
     setTimeout(
-      // add -1 to byDateDesc.length and added 'byDateDesc &&'
-      () => setIndex(byDateDesc && index < byDateDesc.length -1 ? index + 1 : 0),
+      // add -1 to byDateDesc.length
+      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
       5000
     );
     }
@@ -31,7 +31,7 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        // ajout de <div key={event.title} > qui englobe le reste
+        // ajout de <div key={event.title}> autour des éléments qui rend chaque itération du mapping unique
          <div key={event.title} >
          <div className={`SlideCard SlideCard--${
                  index === idx ? "display" : "hide"
@@ -54,8 +54,9 @@ const Slider = () => {
                   key={`${e.title}`}
                   type="radio"
                   name="radio-button"
-                  // change idx to index and add readOnly
+                  // change idx to index 
                   checked={index === radioIdx}
+                  // add readOnly
                   readOnly
                 />
               ))}
