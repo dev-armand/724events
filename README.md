@@ -1,15 +1,9 @@
 # 724 Events
 
 ## Description
-L'application est le site d'une agence evenementielle.
-## Pre-requis
-- NodeJS  >= v16.14.1
+This is the website of a French event agency
 
-## Installation
-- `yarn install`
+### Work done
+This was a deebugging work and I used the devtools and unit test to solve the problems
 
-## Lancement de l'application
-- `yarn start`
-
-## Tests
-- `yarn test`
+link to the website: https://dev-armand.github.io/P10-724events/
